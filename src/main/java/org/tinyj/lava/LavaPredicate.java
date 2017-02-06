@@ -1,21 +1,21 @@
-package org.tinyj.lava.throwing;
+package org.tinyj.lava;
 
 /**
- * <p>
  * A special kind of function mapping its argument to
- * a {@code boolean} results.
- * </p><p>
+ * a {@code boolean} result.
+ * This is the exception declaring version of
+ * Java's [`Predicate`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)
+ *
  * While not strictly required it usually is expected that subsequent
  * invocations with the same argument yield equal results.
- * </p><p>
- * This is a functional interface whose functional method is {@link #test(X)}.
- * </p>
+ *
+ * This is a functional interface whose functional method is {@link #checkedTest(X)}.
  *
  * @param <X> the function's argument type
  * @param <E> upper limit of thrown exception types
  */
 @FunctionalInterface
-public interface ThrowingPredicate<X, E extends Exception> {
+public interface LavaPredicate<X, E extends Exception> {
 
   /**
    * Test if the argument matches the predicate
@@ -23,19 +23,19 @@ public interface ThrowingPredicate<X, E extends Exception> {
    * @param x argument to the match
    * @return {@code true} if {@code x} matches, {@code false} otherwise
    */
-  boolean test(X x) throws E;
+  boolean checkedTest(X x) throws E;
 
   /**
-   * Safely casts between different {@link ThrowingPredicate} parametrization
+   * Safely casts between different (#LavaPredicate) parametrization
    *
    * @param <X> accepted argument type
    * @param <E> required exception limit
    * @param predicate predicate to adopt
-   * @return {@code predicate} casted to the compatible parametrization {@link ThrowingPredicate}{@code <X, E>}
+   * @return `predicate` casted to the compatible parametrization (#LavaPredicate)`<X, E>`
    */
   @SuppressWarnings("unchecked")
   static <X, E extends Exception>
-  ThrowingPredicate<X, E> castDown(ThrowingPredicate<? super X, ? extends E> predicate) {
-    return (ThrowingPredicate<X, E>) predicate;
+  LavaPredicate<X, E> castDown(LavaPredicate<? super X, ? extends E> predicate) {
+    return (LavaPredicate<X, E>) predicate;
   }
 }
