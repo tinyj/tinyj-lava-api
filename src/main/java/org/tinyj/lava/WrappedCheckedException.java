@@ -60,6 +60,14 @@ public final class WrappedCheckedException extends RuntimeException {
     }
   }
 
+  /**
+   * Raise `e`. If `e` is a checked exception a (#WrappedCheckedException)
+   * wrapping `e` is raised instead.
+   */
+  public static <R> R raiseUnchecked(Exception e) {
+    throw wrapCheckedException(e);
+  }
+
   private static Exception assertCheckedException(Exception cause) {
     assert cause != null && !(cause instanceof RuntimeException);
     return cause;
