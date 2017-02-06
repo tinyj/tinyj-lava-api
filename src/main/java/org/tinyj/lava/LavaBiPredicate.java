@@ -21,7 +21,7 @@ public interface LavaBiPredicate<X, Y, E extends Exception> {
    *
    * @param x first argument to the match
    * @param y second argument to the match
-   * @return {@code true} if {@code x} matches, {@code false} otherwise
+   * @return `true` if `x` matches, `false` otherwise
    */
   boolean checkedTest(X x, Y y) throws E;
 

@@ -21,7 +21,7 @@ public interface LavaPredicate<X, E extends Exception> {
    * Test if the argument matches the predicate
    *
    * @param x argument to the match
-   * @return {@code true} if {@code x} matches, {@code false} otherwise
+   * @return `true` if `x` matches, `false` otherwise
    */
   boolean checkedTest(X x) throws E;
 

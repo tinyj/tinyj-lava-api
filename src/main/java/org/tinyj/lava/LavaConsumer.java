@@ -7,7 +7,7 @@ package org.tinyj.lava;
  * Usually invoking a consumer results in side effects. Subsequent
  * invocations may or may not result in further side effects.
  *
- * This is a functional interface whose functional method is {@link #checkedAccept(X)}.
+ * This is a functional interface whose functional method is `checkedAccept(X)`.
  *
  * @param <X> consumed value type
  * @param <E> upper limit of thrown exception types
