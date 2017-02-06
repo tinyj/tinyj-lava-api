@@ -17,8 +17,8 @@ An operation on two input values. This is the exception declaring version of
 Perform operation on inputs.
 
 **`castDown(LavaBiConsumer<? super X, ? super Y, ? extends E> biConsumer)`**  
-⇒ *`LavaBiConsumer<X, Y, E>`* _(`biConsumer` casted to the compatible parametrization [`LavaBiConsumer`](#lavabiconsumerxye)`<X, Y, E>`)_  
-Safely casts between different [`LavaBiConsumer`](#lavabiconsumerxye) parametrization
+⇒ *`LavaBiConsumer<X, Y, E>`* _(`biConsumer` casted to the compatible parametrization [`LavaBiConsumer`](#lavabiconsumerx-y-e)`<X, Y, E>`)_  
+Safely casts between different [`LavaBiConsumer`](#lavabiconsumerx-y-e) parametrization
 
 ### LavaBiFunction\<X, Y, R, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaBiFunction.java)_ |
@@ -38,8 +38,8 @@ A bi-function maps its two argument to a result. This is the exception declaring
 Apply the function to arguments
 
 **`castDown(LavaBiFunction<? super X, ? super Y, ? extends R, ? extends E> biFunction)`**  
-⇒ *`LavaBiFunction<X, Y, R, E>`* _(`biFunction` casted to the compatible parametrization [`LavaBiFunction`](#lavabifunctionxyre)`<X, Y, R, E>`)_  
-Safely casts between different [`LavaBiFunction`](#lavabifunctionxyre) parametrization
+⇒ *`LavaBiFunction<X, Y, R, E>`* _(`biFunction` casted to the compatible parametrization [`LavaBiFunction`](#lavabifunctionx-y-r-e)`<X, Y, R, E>`)_  
+Safely casts between different [`LavaBiFunction`](#lavabifunctionx-y-r-e) parametrization
 
 ### LavaBiPredicate\<X, Y, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaBiPredicate.java)_ |
@@ -60,8 +60,8 @@ A special kind of bi-function mapping its arguments to a `boolean` result.
 Test if the arguments matche the predicate
 
 **`castDown(LavaBiPredicate<? super X, ? super Y, ? extends E> biPredicate)`**  
-⇒ *`LavaBiPredicate<X, Y, E>`* _(`biPredicate` casted to the compatible parametrization [`LavaBiPredicate`](#lavabipredicatexye)`<X, E>`)_  
-Safely casts between different [`LavaBiPredicate`](#lavabipredicatexye)parametrization
+⇒ *`LavaBiPredicate<X, Y, E>`* _(`biPredicate` casted to the compatible parametrization [`LavaBiPredicate`](#lavabipredicatex-y-e)`<X, E>`)_  
+Safely casts between different [`LavaBiPredicate`](#lavabipredicatex-y-e)parametrization
 
 ### LavaConsumer\<X, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaConsumer.java)_ |
@@ -80,8 +80,8 @@ An operation on an input value. This is the exception declaring version of
 Perform operation on input.
 
 **`castDown(LavaConsumer<? super X, ? extends E> consumer)`**  
-⇒ *`LavaConsumer<X, E>`* _(`consumer` casted to the compatible parametrization [`LavaConsumer`](#lavaconsumerxe)`<X, E>`)_  
-Safely casts between different [`LavaConsumer`](#lavaconsumerxe) parametrization
+⇒ *`LavaConsumer<X, E>`* _(`consumer` casted to the compatible parametrization [`LavaConsumer`](#lavaconsumerx-e)`<X, E>`)_  
+Safely casts between different [`LavaConsumer`](#lavaconsumerx-e) parametrization
 
 ### LavaFunction\<X, R, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaFunction.java)_ |
@@ -101,8 +101,8 @@ A function maps its argument to a result. This is the exception declaring versio
 Apply the function to an argument
 
 **`castDown(LavaFunction<? super X, ? extends R, ? extends E> function)`**  
-⇒ *`LavaFunction<X, R, E>`* _(`function` casted to the compatible parametrization [`LavaFunction`](#lavafunctionxre)`<X, R, E>`)_  
-Safely casts between different [`LavaFunction`](#lavafunctionxre) parametrization
+⇒ *`LavaFunction<X, R, E>`* _(`function` casted to the compatible parametrization [`LavaFunction`](#lavafunctionx-r-e)`<X, R, E>`)_  
+Safely casts between different [`LavaFunction`](#lavafunctionx-r-e) parametrization
 
 ### LavaPredicate\<X, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaPredicate.java)_ |
@@ -124,8 +124,8 @@ A special kind of function mapping its argument to
 Test if the argument matches the predicate
 
 **`castDown(LavaPredicate<? super X, ? extends E> predicate)`**  
-⇒ *`LavaPredicate<X, E>`* _(`predicate` casted to the compatible parametrization [`LavaPredicate`](#lavapredicatexe)`<X, E>`)_  
-Safely casts between different [`LavaPredicate`](#lavapredicatexe) parametrization
+⇒ *`LavaPredicate<X, E>`* _(`predicate` casted to the compatible parametrization [`LavaPredicate`](#lavapredicatex-e)`<X, E>`)_  
+Safely casts between different [`LavaPredicate`](#lavapredicatex-e) parametrization
 
 ### LavaRunnable\<E>
 _[(src)](src/main/java/org/tinyj/lava/LavaRunnable.java)_ |
@@ -165,8 +165,8 @@ A supplier of values. This is the exception declaring version of
 Produce a value.
 
 **`castDown(LavaSupplier<? extends R, ? extends E> supplier)`**  
-⇒ *`LavaSupplier<R, E>`* _(`supplier` casted to the compatible parametrization [`LavaSupplier`](#lavasupplierre)`<R, E>`)_  
-Safely casts between different [`LavaSupplier`](#lavasupplierre) parametrization
+⇒ *`LavaSupplier<R, E>`* _(`supplier` casted to the compatible parametrization [`LavaSupplier`](#lavasupplierr-e)`<R, E>`)_  
+Safely casts between different [`LavaSupplier`](#lavasupplierr-e) parametrization
 
 ### NoException
 _[(src)](src/main/java/org/tinyj/lava/NoException.java)_  
