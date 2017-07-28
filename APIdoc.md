@@ -56,12 +56,33 @@ A special kind of bi-function mapping its arguments to a `boolean` result.
  This is a functional interface whose functional method is `checkedTest(X, Y)`.
 
 **`checkedTest(X x, Y y)`**  
-⇒ *`boolean`* _({@code true} if {@code x} matches, {@code false} otherwise)_  
+⇒ *`boolean`* _(`true` if `x` matches, `false` otherwise)_  
 Test if the arguments matche the predicate
 
 **`castDown(LavaBiPredicate<? super X, ? super Y, ? extends E> biPredicate)`**  
 ⇒ *`LavaBiPredicate<X, Y, E>`* _(`biPredicate` casted to the compatible parametrization [`LavaBiPredicate`](#lavabipredicatex-y-e)`<X, E>`)_  
 Safely casts between different [`LavaBiPredicate`](#lavabipredicatex-y-e)parametrization
+
+### LavaBooleanSupplier\<E>
+_[(src)](src/main/java/org/tinyj/lava/LavaBooleanSupplier.java)_ |
+_(interface)_ |
+E: upper limit of thrown exception types
+
+A supplier of `boolean` values. This is the exception declaring version of
+ Java's [`BooleanSupplier`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html)
+
+ There is no requirement that a new or distinct result be returned each
+ time the supplier is invoked.
+
+ This is a functional interface whose functional method is `checkedGetAsBoolean()`.
+
+**`checkedGetAsBoolean()`**  
+⇒ *`boolean`* _(a value)_  
+Produce a value.
+
+**`castDown(LavaBooleanSupplier<? extends E> supplier)`**  
+⇒ *`LavaBooleanSupplier<E>`* _(`supplier` casted to the compatible parametrization [`LavaSupplier`](#lavasupplierr-e)`<R, E>`)_  
+Safely casts between different [`LavaSupplier`](#lavasupplierr-e) parametrization
 
 ### LavaConsumer\<X, E>
 _[(src)](src/main/java/org/tinyj/lava/LavaConsumer.java)_ |
@@ -74,7 +95,7 @@ An operation on an input value. This is the exception declaring version of
  Usually invoking a consumer results in side effects. Subsequent
  invocations may or may not result in further side effects.
 
- This is a functional interface whose functional method is {@link #checkedAccept(X)}.
+ This is a functional interface whose functional method is `checkedAccept(X)`.
 
 **`checkedAccept(X x)`**  
 Perform operation on input.
@@ -120,7 +141,7 @@ A special kind of function mapping its argument to
  This is a functional interface whose functional method is {@link #checkedTest(X)}.
 
 **`checkedTest(X x)`**  
-⇒ *`boolean`* _({@code true} if {@code x} matches, {@code false} otherwise)_  
+⇒ *`boolean`* _(`true` if `x` matches, `false` otherwise)_  
 Test if the argument matches the predicate
 
 **`castDown(LavaPredicate<? super X, ? extends E> predicate)`**  
@@ -189,7 +210,7 @@ _extends_ (#RuntimeException)
 Unchecked exception wrapping a checked exception.
 
 **`wrapCheckedException(Exception e)`**  
-⇒ *`RuntimeException`* _(`e` if `e` is `null` or a [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html),
+⇒ *`RuntimeException`* _(`e` if `e` is `null` or a [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html),
  a [`WrappedCheckedException`](#wrappedcheckedexception) wrapping `e` otherwise)_  
 
 
@@ -201,4 +222,9 @@ Execute `task`, wrap and rethrow any checked exception raised during
 ⇒ *`R`* _(Value returned by `task.checkedGet()`)_  
 Execute `task`, wrap and rethrow any checked exception raised during
  execution. The result of `task.checkedGet()} is passed to the caller.
+
+**`raiseUnchecked(Exception e)`**  
+⇒ *`R`*  
+Raise `e`. If `e` is a checked exception a [`WrappedCheckedException`](#wrappedcheckedexception)
+ wrapping `e` is raised instead.
 
