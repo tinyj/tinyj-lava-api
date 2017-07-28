@@ -15,7 +15,7 @@ public final class WrappedCheckedException extends RuntimeException {
 
   /**
    * @param e [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html) to wrap
-   * @return `e` if `e` is `null` or a [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html),
+   * @return `e` if `e` is `null` or a [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html),
    * a (#WrappedCheckedException) wrapping `e` otherwise
    */
   public static RuntimeException wrapCheckedException(Exception e) {
