@@ -6,6 +6,12 @@
   <artifactId>lava-api</artifactId>
   <version>0-SNAPSHOT</version>
 
+  <name>TinyJ Lava-API</name>
+  <description>Functional interfaces with checked exceptions.</description>
+  <url>https://github.com/tinyj/tinyj-lava-api</url>
+  <scm>
+    <url>https://github.com/tinyj/tinyj-lava-api</url>
+  </scm>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
