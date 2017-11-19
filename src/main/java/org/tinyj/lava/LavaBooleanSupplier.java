@@ -1,13 +1,15 @@
 package org.tinyj.lava;
 
 /**
- * A supplier of `boolean` values. This is the exception declaring version of
- * Java's [`BooleanSupplier`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html)
- *
+ * A supplier of {@code boolean} values.
+ * <p>
+ * This is the exception declaring version of {@link java.util.function.BooleanSupplier}
+ * <p>
  * There is no requirement that a new or distinct result be returned each
  * time the supplier is invoked.
- *
- * This is a functional interface whose functional method is `checkedGetAsBoolean()`.
+ * <p>
+ * This is a functional interface whose functional method is
+ * {@link #checkedGetAsBoolean}.
  *
  * @param <E> upper limit of thrown exception types
  */
@@ -22,11 +24,11 @@ public interface LavaBooleanSupplier<E extends Exception> {
   boolean checkedGetAsBoolean() throws E;
 
   /**
-   * Safely casts between different (#LavaSupplier) parametrization
+   * Safely casts between different {@link LavaSupplier} parametrization
    *
    * @param <E> required exception limit
    * @param supplier supplier to adopt
-   * @return `supplier` casted to the compatible parametrization (#LavaSupplier)`<R, E>`
+   * @return {@code supplier} casted to the compatible parametrization {@link LavaSupplier}{@code <R, E>}
    */
   @SuppressWarnings("unchecked")
   static <E extends Exception>

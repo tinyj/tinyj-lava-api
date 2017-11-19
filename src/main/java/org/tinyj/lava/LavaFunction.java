@@ -1,13 +1,15 @@
 package org.tinyj.lava;
 
 /**
- * A function maps its argument to a result. This is the exception declaring version of
- * Java's [`Function`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html)
- *
+ * A function maps its argument to a result.
+ * <p>
+ * This is the exception declaring version of {@link java.util.function.Function}
+ * <p>
  * While not strictly required it usually is expected that subsequent
  * invocations with the same argument yield equal results.
- *
- * This is a functional interface whose functional method is `checkedApply(X)`.
+ * <p>
+ * This is a functional interface whose functional method is
+ * {@link #checkedApply}.
  *
  * @param <X> the function's argument type
  * @param <R> the function's result type
@@ -25,13 +27,13 @@ public interface LavaFunction<X, R, E extends Exception> {
   R checkedApply(X x) throws E;
 
   /**
-   * Safely casts between different (#LavaFunction) parametrization
+   * Safely casts between different {@link LavaFunction} parametrization
    *
    * @param <X> accepted argument type
    * @param <R> required result type
    * @param <E> required exception limit
    * @param function function to adopt
-   * @return `function` casted to the compatible parametrization (#LavaFunction)`<X, R, E>`
+   * @return {@code function} casted to the compatible parametrization {@link LavaFunction}{@code <X, R, E>}
    */
   @SuppressWarnings("unchecked")
   static <X, R, E extends Exception>

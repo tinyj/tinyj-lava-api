@@ -1,13 +1,15 @@
 package org.tinyj.lava;
 
 /**
- * An operation on two input values. This is the exception declaring version of
- * Java's [`BiConsumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html)
- *
+ * An operation on two input values.
+ * <p>
+ * This is the exception declaring version of {@link java.util.function.BiConsumer}
+ * <p>
  * Usually invoking a bi-consumer results in side effects. Subsequent
  * invocations may or may not result in further side effects.
- *
- * This is a functional interface whose functional method is `checkedAccept(X, Y)`.
+ * <p>
+ * This is a functional interface whose functional method is
+ * {@link #checkedAccept}.
  *
  * @param <X> first consumed value type
  * @param <Y> second consumed value type
@@ -25,13 +27,13 @@ public interface LavaBiConsumer<X, Y, E extends Exception> {
   void checkedAccept(X x, Y y) throws E;
 
   /**
-   * Safely casts between different (#LavaBiConsumer) parametrization
+   * Safely casts between different {@link LavaBiConsumer} parametrization
    *
    * @param <X> first accepted input type
    * @param <Y> second accepted input type
    * @param <E> required exception limit
    * @param biConsumer bi-consumer to adopt
-   * @return `biConsumer` casted to the compatible parametrization (#LavaBiConsumer)`<X, Y, E>`
+   * @return {@code biConsumer} casted to the compatible parametrization {@link LavaBiConsumer}{@code <X, Y, E>}
    */
   @SuppressWarnings("unchecked")
   static <X, Y, E extends Exception>
