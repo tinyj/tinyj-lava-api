@@ -3,7 +3,7 @@ package org.tinyj.lava;
 /**
  * A runnable task.
  * <p>
- * This is the exception declaring version of Java's {@link Runnable}
+ * This is the exception declaring version of Java's {@link java.lang.Runnable}
  * <p>
  * Usually invoking a runnable results in side effects. Subsequent
  * invocations may or may not result in further side effects.

@@ -1,230 +1,336 @@
 ## org.tinyj.lava
 
-### LavaBiConsumer\<X, Y, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaBiConsumer.java)_ |
-_(interface)_ |
-X: first consumed value type — Y: second consumed value type — E: upper limit of thrown exception types
+### LavaBiConsumer<X, Y, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaBiConsumer.java)_
+| _(interface)_  
+`X`: first consumed value type  
+`Y`: second consumed value type  
+`E`: upper limit of thrown exception types
 
-An operation on two input values. This is the exception declaring version of
- Java's [`BiConsumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html)
+An operation on two input values.
 
- Usually invoking a bi-consumer results in side effects. Subsequent
- invocations may or may not result in further side effects.
+This is the exception declaring version of [`java.util.function.BiConsumer`]
 
- This is a functional interface whose functional method is `checkedAccept(X, Y)`.
+Usually invoking a bi-consumer results in side effects. Subsequent
+invocations may or may not result in further side effects.
+
+This is a functional interface whose functional method is
+[`checkedAccept`].
 
 **`checkedAccept(X x, Y y)`**  
+`x`: first consumed value  
+`y`: second consumed value  
 Perform operation on inputs.
 
-**`castDown(LavaBiConsumer<? super X, ? super Y, ? extends E> biConsumer)`**  
-⇒ *`LavaBiConsumer<X, Y, E>`* _(`biConsumer` casted to the compatible parametrization [`LavaBiConsumer`](#lavabiconsumerx-y-e)`<X, Y, E>`)_  
-Safely casts between different [`LavaBiConsumer`](#lavabiconsumerx-y-e) parametrization
+_**`castDown(LavaBiConsumer<? super X, ? super Y, ? extends E> biConsumer)`**_
+⇒ *`LavaBiConsumer<X, Y, E>`* *(`biConsumer` casted to the compatible parametrization [`LavaBiConsumer`]`<X, Y, E>`)*  
+`X`: first accepted input type  
+`Y`: second accepted input type  
+`E`: required exception limit  
+`biConsumer`: bi-consumer to adopt  
+Safely casts between different [`LavaBiConsumer`] parametrization
 
-### LavaBiFunction\<X, Y, R, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaBiFunction.java)_ |
-_(interface)_ |
-X: the bi-function's first argument type — Y: the bi-function's second argument type — R: the bi-function's result type — E: upper limit of thrown exception types
 
-A bi-function maps its two argument to a result. This is the exception declaring version of
- Java's [`BiFunction`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html)
+### LavaBiFunction<X, Y, R, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaBiFunction.java)_
+| _(interface)_  
+`X`: the bi-function's first argument type  
+`Y`: the bi-function's second argument type  
+`R`: the bi-function's result type  
+`E`: upper limit of thrown exception types
 
- While not strictly required it usually is expected that subsequent
- invocations with the same arguments yield equal results.
+A bi-function maps its two argument to a result.
 
- This is a functional interface whose functional method is `checkedApply(X, Y)`.
+This is the exception declaring version of [`java.util.function.BiFunction`]
 
-**`checkedApply(X x, Y y)`**  
-⇒ *`R`* _(the function's result)_  
+While not strictly required it usually is expected that subsequent
+invocations with the same arguments yield equal results.
+
+This is a functional interface whose functional method is
+[`checkedApply`].
+
+**`checkedApply(X x, Y y)`**
+⇒ *`R`* *(the function's result)*  
+`x`: first argument to map  
+`y`: second argument to map  
 Apply the function to arguments
 
-**`castDown(LavaBiFunction<? super X, ? super Y, ? extends R, ? extends E> biFunction)`**  
-⇒ *`LavaBiFunction<X, Y, R, E>`* _(`biFunction` casted to the compatible parametrization [`LavaBiFunction`](#lavabifunctionx-y-r-e)`<X, Y, R, E>`)_  
-Safely casts between different [`LavaBiFunction`](#lavabifunctionx-y-r-e) parametrization
+_**`castDown(LavaBiFunction<? super X, ? super Y, ? extends R, ? extends E> biFunction)`**_
+⇒ *`LavaBiFunction<X, Y, R, E>`* *(`biFunction` casted to the compatible parametrization [`LavaBiFunction`]`<X, Y, R, E>`)*  
+`X`: first accepted argument type  
+`Y`: second accepted argument type  
+`R`: required result type  
+`E`: required exception limit  
+`biFunction`: bi-function to adopt  
+Safely casts between different [`LavaBiFunction`] parametrization
 
-### LavaBiPredicate\<X, Y, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaBiPredicate.java)_ |
-_(interface)_ |
-X: the function's argument type — E: upper limit of thrown exception types
+
+### LavaBiPredicate<X, Y, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaBiPredicate.java)_
+| _(interface)_  
+`X`: the function's argument type  
+`E`: upper limit of thrown exception types
 
 A special kind of bi-function mapping its arguments to a `boolean` result.
- This is the exception declaring version of
- Java's [`BiPredicate`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html)
 
- While not strictly required it usually is expected that subsequent
- invocations with the same argument yield equal results.
+This is the exception declaring version of [`java.util.function.BiPredicate`]
 
- This is a functional interface whose functional method is `checkedTest(X, Y)`.
+While not strictly required it usually is expected that subsequent
+invocations with the same argument yield equal results.
 
-**`checkedTest(X x, Y y)`**  
-⇒ *`boolean`* _(`true` if `x` matches, `false` otherwise)_  
+This is a functional interface whose functional method is
+[`checkedTest`].
+
+**`checkedTest(X x, Y y)`**
+⇒ *`boolean`* *(`true` if `x` matches, `false` otherwise)*  
+`x`: first argument to the match  
+`y`: second argument to the match  
 Test if the arguments matche the predicate
 
-**`castDown(LavaBiPredicate<? super X, ? super Y, ? extends E> biPredicate)`**  
-⇒ *`LavaBiPredicate<X, Y, E>`* _(`biPredicate` casted to the compatible parametrization [`LavaBiPredicate`](#lavabipredicatex-y-e)`<X, E>`)_  
-Safely casts between different [`LavaBiPredicate`](#lavabipredicatex-y-e)parametrization
+_**`castDown(LavaBiPredicate<? super X, ? super Y, ? extends E> biPredicate)`**_
+⇒ *`LavaBiPredicate<X, Y, E>`* *(`biPredicate` casted to the compatible parametrization [`LavaBiPredicate`]`<X, E>`)*  
+`X`: first accepted argument type  
+`Y`: second accepted argument type  
+`E`: required exception limit  
+`biPredicate`: bi-predicate to adopt  
+Safely casts between different [`LavaBiPredicate`]parametrization
+
 
 ### LavaBooleanSupplier\<E>
-_[(src)](src/main/java/org/tinyj/lava/LavaBooleanSupplier.java)_ |
-_(interface)_ |
-E: upper limit of thrown exception types
+_[(src)](src/main/java/org/tinyj/lava/LavaBooleanSupplier.java)_
+| _(interface)_  
+`E`: upper limit of thrown exception types
 
-A supplier of `boolean` values. This is the exception declaring version of
- Java's [`BooleanSupplier`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html)
+A supplier of `boolean` values.
 
- There is no requirement that a new or distinct result be returned each
- time the supplier is invoked.
+This is the exception declaring version of [`java.util.function.BooleanSupplier`]
 
- This is a functional interface whose functional method is `checkedGetAsBoolean()`.
+There is no requirement that a new or distinct result be returned each
+time the supplier is invoked.
 
-**`checkedGetAsBoolean()`**  
-⇒ *`boolean`* _(a value)_  
+This is a functional interface whose functional method is
+[`checkedGetAsBoolean`].
+
+**`checkedGetAsBoolean()`**
+⇒ *`boolean`* *(a value)*  
 Produce a value.
 
-**`castDown(LavaBooleanSupplier<? extends E> supplier)`**  
-⇒ *`LavaBooleanSupplier<E>`* _(`supplier` casted to the compatible parametrization [`LavaSupplier`](#lavasupplierr-e)`<R, E>`)_  
-Safely casts between different [`LavaSupplier`](#lavasupplierr-e) parametrization
+_**`castDown(LavaBooleanSupplier<? extends E> supplier)`**_
+⇒ *`LavaBooleanSupplier<E>`* *(`supplier` casted to the compatible parametrization [`LavaSupplier`]`<R, E>`)*  
+`E`: required exception limit  
+`supplier`: supplier to adopt  
+Safely casts between different [`LavaSupplier`] parametrization
 
-### LavaConsumer\<X, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaConsumer.java)_ |
-_(interface)_ |
-X: consumed value type — E: upper limit of thrown exception types
 
-An operation on an input value. This is the exception declaring version of
- Java's [`Consumer`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html)
+### LavaConsumer<X, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaConsumer.java)_
+| _(interface)_  
+`X`: consumed value type  
+`E`: upper limit of thrown exception types
 
- Usually invoking a consumer results in side effects. Subsequent
- invocations may or may not result in further side effects.
+An operation on an input value.
 
- This is a functional interface whose functional method is `checkedAccept(X)`.
+This is the exception declaring version of [`java.util.function.Consumer`]
+
+Usually invoking a consumer results in side effects. Subsequent
+invocations may or may not result in further side effects.
+
+This is a functional interface whose functional method is
+[`checkedAccept`].
 
 **`checkedAccept(X x)`**  
+`x`: consumed value  
 Perform operation on input.
 
-**`castDown(LavaConsumer<? super X, ? extends E> consumer)`**  
-⇒ *`LavaConsumer<X, E>`* _(`consumer` casted to the compatible parametrization [`LavaConsumer`](#lavaconsumerx-e)`<X, E>`)_  
-Safely casts between different [`LavaConsumer`](#lavaconsumerx-e) parametrization
+_**`castDown(LavaConsumer<? super X, ? extends E> consumer)`**_
+⇒ *`LavaConsumer<X, E>`* *(`consumer` casted to the compatible parametrization [`LavaConsumer`]`<X, E>`)*  
+`X`: accepted input type  
+`E`: required exception limit  
+`consumer`: consumer to adopt  
+Safely casts between different [`LavaConsumer`] parametrization
 
-### LavaFunction\<X, R, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaFunction.java)_ |
-_(interface)_ |
-X: the function's argument type — R: the function's result type — E: upper limit of thrown exception types
 
-A function maps its argument to a result. This is the exception declaring version of
- Java's [`Function`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html)
+### LavaFunction<X, R, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaFunction.java)_
+| _(interface)_  
+`X`: the function's argument type  
+`R`: the function's result type  
+`E`: upper limit of thrown exception types
 
- While not strictly required it usually is expected that subsequent
- invocations with the same argument yield equal results.
+A function maps its argument to a result.
 
- This is a functional interface whose functional method is `checkedApply(X)`.
+This is the exception declaring version of [`java.util.function.Function`]
 
-**`checkedApply(X x)`**  
-⇒ *`R`* _(the function's result)_  
+While not strictly required it usually is expected that subsequent
+invocations with the same argument yield equal results.
+
+This is a functional interface whose functional method is
+[`checkedApply`].
+
+**`checkedApply(X x)`**
+⇒ *`R`* *(the function's result)*  
+`x`: argument to map  
 Apply the function to an argument
 
-**`castDown(LavaFunction<? super X, ? extends R, ? extends E> function)`**  
-⇒ *`LavaFunction<X, R, E>`* _(`function` casted to the compatible parametrization [`LavaFunction`](#lavafunctionx-r-e)`<X, R, E>`)_  
-Safely casts between different [`LavaFunction`](#lavafunctionx-r-e) parametrization
+_**`castDown(LavaFunction<? super X, ? extends R, ? extends E> function)`**_
+⇒ *`LavaFunction<X, R, E>`* *(`function` casted to the compatible parametrization [`LavaFunction`]`<X, R, E>`)*  
+`X`: accepted argument type  
+`R`: required result type  
+`E`: required exception limit  
+`function`: function to adopt  
+Safely casts between different [`LavaFunction`] parametrization
 
-### LavaPredicate\<X, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaPredicate.java)_ |
-_(interface)_ |
-X: the function's argument type — E: upper limit of thrown exception types
 
-A special kind of function mapping its argument to
- a {@code boolean} result.
- This is the exception declaring version of
- Java's [`Predicate`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)
+### LavaPredicate<X, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaPredicate.java)_
+| _(interface)_  
+`X`: the function's argument type  
+`E`: upper limit of thrown exception types
 
- While not strictly required it usually is expected that subsequent
- invocations with the same argument yield equal results.
+A special kind of function mapping its argument to a `boolean` result.
 
- This is a functional interface whose functional method is {@link #checkedTest(X)}.
+This is the exception declaring version of [`java.util.function.Predicate`]
 
-**`checkedTest(X x)`**  
-⇒ *`boolean`* _(`true` if `x` matches, `false` otherwise)_  
+While not strictly required it usually is expected that subsequent
+invocations with the same argument yield equal results.
+
+This is a functional interface whose functional method is
+[`checkedTest`].
+
+**`checkedTest(X x)`**
+⇒ *`boolean`* *(`true` if `x` matches, `false` otherwise)*  
+`x`: argument to the match  
 Test if the argument matches the predicate
 
-**`castDown(LavaPredicate<? super X, ? extends E> predicate)`**  
-⇒ *`LavaPredicate<X, E>`* _(`predicate` casted to the compatible parametrization [`LavaPredicate`](#lavapredicatex-e)`<X, E>`)_  
-Safely casts between different [`LavaPredicate`](#lavapredicatex-e) parametrization
+_**`castDown(LavaPredicate<? super X, ? extends E> predicate)`**_
+⇒ *`LavaPredicate<X, E>`* *(`predicate` casted to the compatible parametrization [`LavaPredicate`]`<X, E>`)*  
+`X`: accepted argument type  
+`E`: required exception limit  
+`predicate`: predicate to adopt  
+Safely casts between different [`LavaPredicate`] parametrization
+
 
 ### LavaRunnable\<E>
-_[(src)](src/main/java/org/tinyj/lava/LavaRunnable.java)_ |
-_(interface)_ |
-E: upper limit of thrown exception types
+_[(src)](src/main/java/org/tinyj/lava/LavaRunnable.java)_
+| _(interface)_  
+`E`: upper limit of thrown exception types
 
-A runnable task. This is the exception declaring version of
- Java's [`Runnable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
+A runnable task.
 
- Usually invoking a runnable results in side effects. Subsequent
- invocations may or may not result in further side effects.
+This is the exception declaring version of Java's [`java.lang.Runnable`]
 
- This is a functional interface whose functional method is `checkedRun()`.
+Usually invoking a runnable results in side effects. Subsequent
+invocations may or may not result in further side effects.
+
+This is a functional interface whose functional method is
+[`checkedRun`].
 
 **`checkedRun()`**  
 Execute the task.
 
-**`castDown(LavaRunnable<? extends E> runnable)`**  
-⇒ *`LavaRunnable<E>`* _(`runnable` casted to the compatible parametrization [`LavaRunnable`](#lavarunnablee)`<E>`)_  
-Safely casts between different [`LavaRunnable`](#lavarunnablee) parametrization
+_**`castDown(LavaRunnable<? extends E> runnable)`**_
+⇒ *`LavaRunnable<E>`* *(`runnable` casted to the compatible parametrization [`LavaRunnable`]`<E>`)*  
+`E`: required exception limit  
+`runnable`: runnable to adopt  
+Safely casts between different [`LavaRunnable`] parametrization
 
-### LavaSupplier\<R, E>
-_[(src)](src/main/java/org/tinyj/lava/LavaSupplier.java)_ |
-_(interface)_ |
-R: type of supplied values — E: upper limit of thrown exception types
 
-A supplier of values. This is the exception declaring version of
- Java's [`Supplier`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html)
+### LavaSupplier<R, E>
+_[(src)](src/main/java/org/tinyj/lava/LavaSupplier.java)_
+| _(interface)_  
+`R`: type of supplied values  
+`E`: upper limit of thrown exception types
 
- There is no requirement that a new or distinct result be returned each
- time the supplier is invoked.
+A supplier of values.
 
- This is a functional interface whose functional method is `checkedGet()`.
+This is the exception declaring version of [`java.util.function.Supplier`]
 
-**`checkedGet()`**  
-⇒ *`R`* _(a value)_  
+There is no requirement that a new or distinct result be returned each
+time the supplier is invoked.
+
+This is a functional interface whose functional method is
+[`checkedGet`].
+
+**`checkedGet()`**
+⇒ *`R`* *(a value)*  
 Produce a value.
 
-**`castDown(LavaSupplier<? extends R, ? extends E> supplier)`**  
-⇒ *`LavaSupplier<R, E>`* _(`supplier` casted to the compatible parametrization [`LavaSupplier`](#lavasupplierr-e)`<R, E>`)_  
-Safely casts between different [`LavaSupplier`](#lavasupplierr-e) parametrization
+_**`castDown(LavaSupplier<? extends R, ? extends E> supplier)`**_
+⇒ *`LavaSupplier<R, E>`* *(`supplier` casted to the compatible parametrization [`LavaSupplier`]`<R, E>`)*  
+`R`: required result type  
+`E`: required exception limit  
+`supplier`: supplier to adopt  
+Safely casts between different [`LavaSupplier`] parametrization
+
 
 ### NoException
-_[(src)](src/main/java/org/tinyj/lava/NoException.java)_  
-_extends_ (#RuntimeException)
+_[(src)](src/main/java/org/tinyj/lava/NoException.java)_
 
-Marker class to declare that a function does not throw any [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html).
- It may still throw other [Throwable](https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html) types
- like [Error](https://docs.oracle.com/javase/8/docs/api/java/lang/Error.html)s,
- e.g. [AssertionError](https://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html)
- or [OutOfMemoryError](https://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html)
+Marker class to declare that a function does not throw any [`Exception`].
 
- Using this class in a `throws`-clause does not keep unchecked exceptions
- from being thrown from from that method. It obliges to the implementation
- of that method to ensure no exception passes.
+It may still throw other [`Throwable`] types like [`Error`]s, e.g.
+[`AssertionError`] or [`OutOfMemoryError`]
+
+Using this class in a `throws`-clause does not keep unchecked exceptions
+from being thrown from from that method. It obliges to the implementation
+of that method to ensure no exception passes.
+
 
 ### WrappedCheckedException
-_[(src)](src/main/java/org/tinyj/lava/WrappedCheckedException.java)_  
-_extends_ (#RuntimeException)
+_[(src)](src/main/java/org/tinyj/lava/WrappedCheckedException.java)_
 
 Unchecked exception wrapping a checked exception.
 
-**`wrapCheckedException(Exception e)`**  
-⇒ *`RuntimeException`* _(`e` if `e` is `null` or a [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html),
- a [`WrappedCheckedException`](#wrappedcheckedexception) wrapping `e` otherwise)_  
+_**`wrapCheckedException(Exception e)`**_
+⇒ *`RuntimeException`* *(`e` if `e` is `null` or a [`RuntimeException`],
+a [`WrappedCheckedException`] wrapping `e` otherwise)*  
+`e`: [`Exception`] to wrap  
 
 
-**`wrapCheckedException(LavaRunnable<?> task)`**  
+_**`unwrapCheckedException(Exception e)`**_
+⇒ *`Exception`* *(`e` if `e` is not a [`WrappedCheckedException`] or
+`e.getCause()` otherwise)*  
+`e`: [`Exception`] to unwrap  
+
+
+_**`wrapCheckedException(LavaRunnable<?> task)`**_  
+`task`: [`LavaRunnable`] to execute  
 Execute `task`, wrap and rethrow any checked exception raised during
- execution.
+execution.
 
-**`wrapCheckedException(LavaSupplier<R, ?> task)`**  
-⇒ *`R`* _(Value returned by `task.checkedGet()`)_  
+_**`wrapCheckedException(LavaSupplier<R, ?> task)`**_
+⇒ *`R`* *(Value returned by `task.checkedGet()`)*  
+`task`: [`LavaSupplier`] to execute  
 Execute `task`, wrap and rethrow any checked exception raised during
- execution. The result of `task.checkedGet()} is passed to the caller.
+execution. The result of `task.checkedGet()` is passed to the caller.
 
-**`raiseUnchecked(Exception e)`**  
+_**`raiseUnchecked(Exception e)`**_
 ⇒ *`R`*  
-Raise `e`. If `e` is a checked exception a [`WrappedCheckedException`](#wrappedcheckedexception)
- wrapping `e` is raised instead.
+Raise `e`. If `e` is a checked exception a [`WrappedCheckedException`]
+wrapping `e` is raised instead.
 
+
+
+[`AssertionError`]: https://docs.oracle.com/javase/9/docs/api/java/lang/AssertionError.html
+[`Error`]: https://docs.oracle.com/javase/9/docs/api/java/lang/Error.html
+[`Exception`]: https://docs.oracle.com/javase/9/docs/api/java/lang/Exception.html
+[`LavaBiConsumer`]: #lavabiconsumerx-y-e
+[`LavaBiFunction`]: #lavabifunctionx-y-r-e
+[`LavaBiPredicate`]: #lavabipredicatex-y-e
+[`LavaConsumer`]: #lavaconsumerx-e
+[`LavaFunction`]: #lavafunctionx-r-e
+[`LavaPredicate`]: #lavapredicatex-e
+[`LavaRunnable`]: #lavarunnablee
+[`LavaSupplier`]: #lavasupplierr-e
+[`OutOfMemoryError`]: https://docs.oracle.com/javase/9/docs/api/java/lang/OutOfMemoryError.html
+[`Throwable`]: https://docs.oracle.com/javase/9/docs/api/java/lang/Throwable.html
+[`WrappedCheckedException`]: #wrappedcheckedexception
+[`java.lang.Runnable`]: https://docs.oracle.com/javase/9/docs/api/java/lang/Runnable.html
+[`java.util.function.BiConsumer`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiConsumer.html
+[`java.util.function.BiFunction`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiFunction.html
+[`java.util.function.BiPredicate`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiPredicate.html
+[`java.util.function.BooleanSupplier`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BooleanSupplier.html
+[`java.util.function.Consumer`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Consumer.html
+[`java.util.function.Function`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Function.html
+[`java.util.function.Predicate`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Predicate.html
+[`java.util.function.Supplier`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Supplier.html
