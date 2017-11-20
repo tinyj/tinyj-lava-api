@@ -24,7 +24,7 @@ You can find the API documentation [here](APIdoc.md).
 
 ## License
 
-Copyright 2016 Eric Karge <e.karge@struction.de>
+Copyright © 2017 Eric Karge <e.karge@struction.de>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
