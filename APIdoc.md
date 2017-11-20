@@ -96,30 +96,28 @@ _**`castDown(LavaBiPredicate<? super X, ? super Y, ? extends E> biPredicate)`**_
 Safely casts between different [`LavaBiPredicate`]parametrization
 
 
-### LavaBooleanSupplier\<E>
-_[(src)](src/main/java/org/tinyj/lava/LavaBooleanSupplier.java)_
+### LavaCondition\<E>
+_[(src)](src/main/java/org/tinyj/lava/LavaCondition.java)_
 | _(interface)_  
 `E`: upper limit of thrown exception types
 
 A supplier of `boolean` values.
 
-This is the exception declaring version of [`java.util.function.BooleanSupplier`]
-
 There is no requirement that a new or distinct result be returned each
-time the supplier is invoked.
+time the condition is checked.
 
 This is a functional interface whose functional method is
-[`checkedGetAsBoolean`].
+[`checkedTest()`].
 
-**`checkedGetAsBoolean()`**
+**`checkedTest()`**
 ⇒ *`boolean`* *(a value)*  
 Produce a value.
 
-_**`castDown(LavaBooleanSupplier<? extends E> supplier)`**_
-⇒ *`LavaBooleanSupplier<E>`* *(`supplier` casted to the compatible parametrization [`LavaSupplier`]`<R, E>`)*  
+_**`castDown(LavaCondition<? extends E> condition)`**_
+⇒ *`LavaCondition<E>`* *(`condition` casted to the compatible parametrization [`LavaCondition`]`<R, E>`)*  
 `E`: required exception limit  
-`supplier`: supplier to adopt  
-Safely casts between different [`LavaSupplier`] parametrization
+`condition`: supplier to adopt  
+Safely casts between different [`LavaCondition`] parametrization
 
 
 ### LavaConsumer<X, E>
@@ -317,6 +315,7 @@ wrapping `e` is raised instead.
 [`LavaBiConsumer`]: #lavabiconsumerx-y-e
 [`LavaBiFunction`]: #lavabifunctionx-y-r-e
 [`LavaBiPredicate`]: #lavabipredicatex-y-e
+[`LavaCondition`]: #lavaconditione
 [`LavaConsumer`]: #lavaconsumerx-e
 [`LavaFunction`]: #lavafunctionx-r-e
 [`LavaPredicate`]: #lavapredicatex-e
@@ -329,7 +328,6 @@ wrapping `e` is raised instead.
 [`java.util.function.BiConsumer`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiConsumer.html
 [`java.util.function.BiFunction`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiFunction.html
 [`java.util.function.BiPredicate`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BiPredicate.html
-[`java.util.function.BooleanSupplier`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/BooleanSupplier.html
 [`java.util.function.Consumer`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Consumer.html
 [`java.util.function.Function`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Function.html
 [`java.util.function.Predicate`]: https://docs.oracle.com/javase/9/docs/api/java/util/function/Predicate.html
