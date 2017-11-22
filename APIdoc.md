@@ -340,8 +340,6 @@ from being thrown from from that method. It obliges to the implementation
 of that method to ensure no exception passes.
 
 
-**`NoException()`** _(contructor)_  
-
 
 ### WrappedCheckedException
 _[(src)](src/main/java/org/tinyj/lava/WrappedCheckedException.java)_  
@@ -349,28 +347,15 @@ _[(src)](src/main/java/org/tinyj/lava/WrappedCheckedException.java)_
 Unchecked exception wrapping a checked exception.
 
 
-**`WrappedCheckedException(Exception e)`** _(contructor)_  
-`e`: the wrapped checked exception  
-
-[`WrappedCheckedException`] cannot be instantiated directly. Use
-`wrapCheckedException(Exception)` instead.
-
-
 ***`wrapCheckedException(Exception e)`***
 ⇒ *`RuntimeException`* *(`e` if `e` is `null` or a [`RuntimeException`],
 a [`WrappedCheckedException`] wrapping `e` otherwise)*  
 `e`: [`Exception`] to wrap  
 
-
-
-
 ***`unwrapCheckedException(Exception e)`***
 ⇒ *`Exception`* *(`e` if `e` is not a [`WrappedCheckedException`] or
 `e.getCause()` otherwise)*  
 `e`: [`Exception`] to unwrap  
-
-
-
 
 ***`wrapCheckedException(LavaRunnable<?> task)`***  
 `task`: [`LavaRunnable`] to execute  
@@ -394,8 +379,11 @@ Raise `e`. If `e` is a checked exception a [`WrappedCheckedException`]
 wrapping `e` is raised instead.
 
 
-***`assertCheckedException(Exception cause)`***
-⇒ *`Exception`*  
+***`raiseCheckedLimit(Exception e, Class<? extends E> limit)`***  
+
+Raise `e` if `e` is a unchecked exception or an instance of `limit`.
+Otherwise raise a [`WrappedCheckedException`] wrapping `e` instead.
+
 
 
 [`AssertionError`]: https://docs.oracle.com/javase/9/docs/api/java/lang/AssertionError.html
