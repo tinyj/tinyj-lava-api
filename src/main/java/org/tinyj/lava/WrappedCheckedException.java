@@ -77,6 +77,16 @@ public final class WrappedCheckedException extends RuntimeException {
     throw wrapCheckedException(e);
   }
 
+  /**
+   * Raise {@code e} if {@code e} is a unchecked exception or an instance of {@code limit}.
+   * Otherwise raise a {@link WrappedCheckedException} wrapping {@code e} instead.
+   */
+  public static <E extends Exception> void raiseCheckedLimit(Exception e, Class<? extends E> limit) throws E {
+    if (limit.isInstance(e)) {
+      throw limit.cast(e);
+    } else throw wrapCheckedException(e);
+  }
+
   private static Exception assertCheckedException(Exception cause) {
     assert cause != null && !(cause instanceof RuntimeException);
     return cause;
